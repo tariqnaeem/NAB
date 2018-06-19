@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="calculator-app">
+
+  <head>
+    <script data-require="angular.js@1.0.7" data-semver="1.0.7" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="controller.js"></script>
+	<script src="service.js"></script>
+  </head>
+
+  <body>
+    <h1>AngularJS calculator</h1>
+    <div ng-controller="CalculatorCtrl">
+	<form name="myForm">
+      <table>
+        <tr>
+          <td><input type="number" ng-change="calculate()" ng-model="num1" ng-pattern="/^[0-9]+[.]?[0-9]*$/"></td>
+        </tr>
+		<tr>
+		<td>
+              <input type="button" ng-click="operator('addition')" value="+"/>
+			  <input type="button" ng-click="operator('subtraction')" value="-"/>
+              <input type="button" ng-click="operator('multiplication')" value="*"/>
+			  <input type="button" ng-click="operator('division')" value="/"/>
+            
+          </td>
+		</tr>
+        <tr>
+          <td><input type="number" ng-change="calculate()" ng-model="num2" ng-pattern="/^[0-9]+[.]?[0-9]*$/"></td>
+        </tr>
+      </table>
+	  </form>
+      <span ng-if="result">{{result}}</span>
+	  
+    </div>
+  </body>
+
+</html>
